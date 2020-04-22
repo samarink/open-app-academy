@@ -31,11 +31,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[id])
-
-    if @user.destroy
-      render json: @user
-    else
-      render json: @user.errors.full_messages, status: :unprocessable_entity
-    end
+    @user.destroy
+    render json: @user
   end
 end
