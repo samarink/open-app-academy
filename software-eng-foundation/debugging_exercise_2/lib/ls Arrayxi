@@ -1,0 +1,36 @@
+[1m[1;34mJSON::Ext::Generator::GeneratorMethods::String::Extend#methods[0m[0m: json_create
+[1m[1;34mString.methods[0m[0m: try_convert
+[1m[1;34mString#methods[0m[0m: 
+  %            delete                 length        squeeze            
+  *            delete!                lines         squeeze!           
+  +            delete_prefix          ljust         start_with?        
+  +@           delete_prefix!         lstrip        strip              
+  -@           delete_suffix          lstrip!       strip!             
+  <<           delete_suffix!         match         sub                
+  <=>          downcase               match?        sub!               
+  ==           downcase!              next          succ               
+  ===          dump                   next!         succ!              
+  =~           each_byte              oct           sum                
+  []           each_char              ord           swapcase           
+  []=          each_codepoint         partition     swapcase!          
+  ascii_only?  each_grapheme_cluster  prepend       to_c               
+  b            each_line              pretty_print  to_f               
+  bytes        empty?                 replace       to_i               
+  bytesize     encode                 reverse       to_r               
+  byteslice    encode!                reverse!      to_s               
+  capitalize   encoding               rindex        to_str             
+  capitalize!  end_with?              rjust         to_sym             
+  casecmp      eql?                   rpartition    tr                 
+  casecmp?     force_encoding         rstrip        tr!                
+  center       freeze                 rstrip!       tr_s               
+  chars        getbyte                scan          tr_s!              
+  chomp        grapheme_clusters      scrub         undump             
+  chomp!       gsub                   scrub!        unicode_normalize  
+  chop         gsub!                  setbyte       unicode_normalize! 
+  chop!        hash                   shell_split   unicode_normalized?
+  chr          hex                    shellescape   unpack             
+  clear        include?               shellsplit    unpack1            
+  codepoints   index                  size          upcase             
+  concat       insert                 slice         upcase!            
+  count        inspect                slice!        upto               
+  crypt        intern                 split         valid_encoding?    
