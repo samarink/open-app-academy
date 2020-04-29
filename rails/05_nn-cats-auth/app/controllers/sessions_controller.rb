@@ -17,4 +17,9 @@ class SessionsController < ApplicationController
       redirect_to cats_url
     end
   end
+
+  def destroy
+    logout_user!
+    redirect_to new_session_url
+  end
 end
