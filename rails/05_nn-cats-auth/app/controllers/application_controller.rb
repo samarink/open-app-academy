@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
       session[session_token] = nil
     end
   end
+
+  def require_no_user
+    redirect_to cats_url if current_user
+  end
 end
