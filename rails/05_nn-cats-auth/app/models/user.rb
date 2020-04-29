@@ -8,6 +8,9 @@ class User < ApplicationRecord
   before_initialize :ensure_session_token
 
   has_many :cats
+  has_many :rental_requests,
+    class_name: 'CatRentalRequest',
+    dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
