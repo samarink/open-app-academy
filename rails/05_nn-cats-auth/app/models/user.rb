@@ -7,6 +7,8 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   before_initialize :ensure_session_token
 
+  has_many :cats
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil if user.nil?
