@@ -19,6 +19,10 @@ class User < ApplicationRecord
     SecureRandom::urlsafe_base64(16)
   end
 
+  def owns_cat?(cat)
+    cat.user_id == self.id
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

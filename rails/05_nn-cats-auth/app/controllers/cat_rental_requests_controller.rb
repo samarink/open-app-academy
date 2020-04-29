@@ -1,4 +1,7 @@
 class CatRentalRequestsController < ApplicationController
+  before_action :require_user, only: [:approve, :deny]
+  before_action :require_cat_ownership, only: [:approve, :deny]
+
   def approve
     current_cat_rental_request.approve!
     redirect_to cat_url(current_cat)
@@ -24,6 +27,11 @@ class CatRentalRequestsController < ApplicationController
   end
 
   private
+
+  def require_cat_ownership
+    return if current_user.owns_cat?(current_cat)
+    redirecto_to cat_url(current_cat)
+  end
 
   def current_cat_rental_request
     @rental_request ||=
