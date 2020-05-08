@@ -109,10 +109,42 @@ label {
     display: block;
 }
 
+.hamburger-dropdown {
+  display: none;
+}
+
 /* Media Queries! */
 @media all and (max-width: 900px) {
   .col {
     min-width: 540px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  .hamburger-dropdown > li {
+    background: url("hamburger.png");
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .hamburger-dropdown ul {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+  }
+
+  .hamburger-dropdown:hover ul {
+    display: block;
   }
 }
 
