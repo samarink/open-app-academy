@@ -111,6 +111,8 @@ label {
 
 /* Media Queries! */
 @media all and (max-width: 900px) {
-/* Code Goes Here */
+  .col {
+    min-width: 540px;
+  }
 }
 
