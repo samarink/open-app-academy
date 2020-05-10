@@ -1,0 +1,40 @@
+// .sections-nav {
+//   width: 80%;
+//   margin: 0 auto;
+//   border-bottom: 1px solid $light-gray;
+// }
+
+// .sections-nav ul {
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+// .sections-nav li {
+//   padding: 10px;
+// }
+
+.sections-nav {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.sections-nav ul {
+	display: flex;
+	padding: 10px 0;
+}
+
+.sections-nav li {
+	margin: 0 10px;
+  font-family: $sans-serif;
+  cursor: pointer;
+}
+
+.sections-nav li:hover:not(:last-child) {
+	background-color: $light-gray;
+}
+
+.sections-nav a {
+	text-transform: uppercase;
+	font-size: 10px;
+}
