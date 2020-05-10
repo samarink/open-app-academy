@@ -25,6 +25,10 @@
 	color: $dark-gray;
 }
 
+.language-nav li:first-of-type a {
+	font-weight: bold;
+}
+
 .language-nav ul {
 	display: flex;
 }
@@ -44,7 +48,6 @@
 
 .masthead-links li {
 	margin-left: 10px;
-	border-right: 1px solid $light-gray;
 }
 
 .masthead-links button {
@@ -60,7 +63,7 @@
 }
 
 .masthead-links a,
-.masthead-links button, 
+.masthead-links button,
 .masthead-links time {
 	margin-right: 10px;
 }
