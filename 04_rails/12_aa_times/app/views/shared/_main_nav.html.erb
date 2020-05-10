@@ -4,6 +4,7 @@
 			<li id="sections-sidebar-btn">
 				<i class="fa fa-bars"></i>
 				<span>sections</span>
+				<%= render partial: 'shared/sections_sidebar'%>
 			</li>
 			<li id="search-modal-btn">
 				<i class="fa fa-search"></i>
@@ -11,14 +12,18 @@
 			</li>
 		</ul>
 	</nav>
-  <nav class="right-nav">
-    <ul>
-      <li><button type="button">Subcribe Now</button></li>
-      <li><button type="button">Log In</button></li>
-      <li>
-        <i class="fa fa-cog"></i>
-        <span></span>
-      </li>
-    </ul>
-  </nav>
+	<nav class="right-nav">
+		<ul>
+			<li>
+				<button>Subscribe Now</button>
+			</li>
+			<li>
+				<button>Log In</button>
+			</li>
+			<li id="gear-dropdown-btn">
+				<i class="fas fa-cog"></i>
+			</li>
+		</ul>
+	</nav>
 </header>
+
