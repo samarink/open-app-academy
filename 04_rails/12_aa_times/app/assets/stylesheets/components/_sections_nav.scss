@@ -1,18 +1,3 @@
-// .sections-nav {
-//   width: 80%;
-//   margin: 0 auto;
-//   border-bottom: 1px solid $light-gray;
-// }
-
-// .sections-nav ul {
-//   display: flex;
-//   justify-content: space-between;
-// }
-
-// .sections-nav li {
-//   padding: 10px;
-// }
-
 .sections-nav {
 	display: flex;
 	justify-content: center;
@@ -37,4 +22,10 @@
 .sections-nav a {
 	text-transform: uppercase;
 	font-size: 10px;
+}
+
+@media all and (max-width: 1000px) {
+  .sections-nav {
+  	display: none;
+  }
 }
