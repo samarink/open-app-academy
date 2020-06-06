@@ -1,10 +1,11 @@
 const Asteroid = require('./asteroid');
+const Bullet = require('./bullet');
 const Ship = require('./ship');
 const Util = require('./util');
 
 function Game () {
   this.asteroids = [];
-  this.ship = [];
+  this.ships = [];
   this.bullets = [];
 
   this.addAsteroids();
@@ -47,7 +48,7 @@ Game.prototype.addShip = function () {
 };
 
 Game.prototype.allObjects = function () {
-  return [].concat(this.asteroids, this.ship);
+  return [].concat(this.asteroids, this.ships, this.bullets);
 };
 
 Game.prototype.randomPosition = function () {
@@ -70,9 +71,9 @@ Game.prototype.isOutOfBounds = function isOutOfBounds(pos) {
     (pos[0] > Game.DIM_X) || (pos[1] > Game.DIM_Y);
 };
 
-Game.prototype.moveObjects = function () {
-  this.allObjects().forEach(object => {
-    object.move();
+Game.prototype.moveObjects = function (delta) {
+  this.allObjects().forEach(function(object) {
+    object.move(delta);
   });
 };
 
@@ -98,8 +99,8 @@ Game.prototype.checkCollisions = function () {
   }
 };
 
-Game.prototype.step = function () {
-  this.moveObjects();
+Game.prototype.step = function (delta) {
+  this.moveObjects(delta);
   this.checkCollisions();
 };
 
