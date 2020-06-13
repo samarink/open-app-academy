@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/dom_node_collection.js":
+/*!************************************!*\
+  !*** ./src/dom_node_collection.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("class DomNodeCollection {\n  constructor (nodes) {\n    this.nodes = nodes;\n  }\n\n  each(cb) {\n    this.nodes.forEach(cb);\n  }\n\n  html(html) {\n    // setter\n    if (typeof html === \"string\") {\n      this.each((node) => {\n        node.innerHTML = html;\n      });\n    // getter\n    } else if (this.nodes.length > 0) {\n      return this.nodes[0].innerHTML;\n    }\n  }\n\n  empty() {\n    this.html('');\n  }\n\n  append(children) {\n    if (typeof children === 'object' &&\n      !(children instanceof DomNodeCollection)) {\n      // ensure coercion\n      children = $l(children);\n    }\n\n    if (typeof children === 'string') {\n      this.each((node) => {\n        node.innerHTML += children;\n      })\n    } else if (children instanceof DomNodeCollection) {\n      this.each((node) => {\n        children.each((childNode) => {\n          // It is not possible to append same child node\n          // to multiple parents so we have to clone it.\n          node.appendChild(childNode.cloneNode(true));\n        });\n      })\n    }\n  }\n\n  attr(key, val) {\n    if (typeof val === \"string\") {\n      this.each(node => node.setAttribute(key, val));\n    } else {\n      return this.nodes[0].getAttribute(key);\n    }\n  }\n\n  addClass(className) {\n    this.each(node => node.classList.add(className));\n  }\n\n  removeClass(className) {\n    this.each(node => node.classList.remove(className));\n  }\n\n  toggleClass(className) {\n    this.nodes.each(node => node.classList.toggle(className));\n  }\n\n  children() {\n    let childNodes = [];\n\n    this.each((node) => {\n      const childNodeList = node.children;\n      childNodes = childNodes.concat(Array.from(childNodeList));\n    });\n\n    return new DomNodeCollection(childNodes);\n  }\n\n  parent() {\n    const parentNodes = [];\n\n    this.each( ({ parentNode }) => {\n      // we apply 'visited' property to prevent adding duplicate parents\n      if (!parentNode.visited) {\n        parentNodes.push(parentNode);\n        parentNode.visited = true;\n      }\n    });\n\n\n    parentNodes.forEach((node) => {\n      node.visited = false;\n    });\n\n    return new DomNodeCollection(parentNodes);\n  }\n\n  find(selector) {\n    let foundNodes = [];\n\n    this.each(node => {\n      const matchedNodes = node.querySelectorAll(selector);\n      foundNodes = foundNodes.concat(Array.from(matchedNodes));\n    });\n\n    return new DomNodeCollection(foundNodes);\n  }\n\n  remove() {\n    this.each(node => node.parentNode.removeChild(node));\n  }\n}\n\n\nmodule.exports = DomNodeCollection;\n\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("function $1() {\n\n}\n\nwindow.$1 = $1;\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const DomNodeCollection = __webpack_require__(/*! ./dom_node_collection */ \"./src/dom_node_collection.js\");\n\nfunction $l(arg) {\n\n  if (typeof arg === 'string') {\n    const nodeList = document.querySelectorAll(arg);\n    const nodeListArr = Array.from(nodeList);\n    return new DomNodeCollection(nodeListArr);\n\n  } else if (arg instanceof HTMLElement) {\n    return new DomNodeCollection(arg);\n  }\n}\n\nwindow.$l = $l;\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
