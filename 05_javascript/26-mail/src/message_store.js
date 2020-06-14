@@ -1,3 +1,16 @@
+const user = 'me@example.com'
+class Message {
+  constructor(from = user, to = "", subject = "", body = "") {
+    this.from = from;
+    this.to = to;
+    this.subject = subject;
+    this.body = body;
+  }
+}
+
+let messageDraft = new Message();
+
+// const messages = JSON.parse(localStorage.getItem('messages'));
 const messages = {
   sent: [
     {
@@ -29,6 +42,19 @@ const MessageStore = {
 
   getSentMessages() {
     return messages.sent.slice();
+  },
+
+  updateDraftField(field, value) {
+    messageDraft[field] = value;
+  },
+
+  sendDraft() {
+    messages.sent.push(messageDraft);
+    messageDraft = new Message();
+  },
+
+  getMessageDraft() {
+    return messageDraft;
   }
 };
 
