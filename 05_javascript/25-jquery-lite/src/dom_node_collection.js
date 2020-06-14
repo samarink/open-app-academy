@@ -7,6 +7,29 @@ class DomNodeCollection {
     this.nodes.forEach(cb);
   }
 
+  on(eventName, callback) {
+    this.each(node => {
+      node.addEventListener(eventName, callback);
+
+      const eventKey = `jqliteEvents-${eventName}`;
+      if (typeof node[eventKey] === 'undefined') {
+        node[eventKey] = [];
+      }
+      node[eventKey].push(callback);
+    });
+  }
+
+  off(eventName) {
+    this.each(node => {
+      const eventKey = `jqliteEvents-${eventName}`;
+      if (node[eventKey]) {
+        node[eventKey].forEach(callback => {
+          node.removeEventListener(eventName, callback);
+        });
+      }
+    });
+  }
+
   html(html) {
     // setter
     if (typeof html === "string") {
