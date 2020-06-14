@@ -2,26 +2,24 @@ const MessageStore = require('./message_store');
 
 module.exports = {
   render() {
-    const container = document.createElement('ul');
-    container.className = 'messages';
+    let container = document.createElement("ul");
+    container.className = "messages";
 
-    const messages = MessageStore.getInboxMessages()
+    let messages = MessageStore.getSentMessages();
     messages.forEach(message => {
       container.appendChild(this.renderMessage(message));
     });
-
     return container;
   },
 
   renderMessage(message) {
-    const messageEl = document.createElement('li');
-    messageEl.classList = 'message';
+    let messageEl = document.createElement("li");
+    messageEl.className = "message";
     messageEl.innerHTML = `
-      <span class="from">${message.from}</span>
+      <span class="from">To: ${message.to}</span>
       <span class="subject">${message.subject}</span> -
-      <span class="body">${message.body}</span>
+      <span class="body">${message.body}
     `;
     return messageEl;
   }
-}
-
+};
