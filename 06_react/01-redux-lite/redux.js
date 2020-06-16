@@ -1,10 +1,13 @@
 class Store {
-  constructor(rootReducer) {
+  constructor(rootReducer, appliedMiddleware) {
     this.rootReducer = rootReducer;
-    this.state = {};
+    this.appliedMiddleware = appliedMiddleware;
+    this.state = rootReducer({});
     this.subscriptions = [];
 
     this.getState = this.getState.bind(this);
+    this.dispatch = this.dispatch.bind(this);
+    this.subscribe = this.subscribe.bind(this);
   }
 
   getState() {
@@ -12,7 +15,10 @@ class Store {
   }
 
   dispatch(action) {
-    this.state = this.rootReducer(this.state, action, this.subscriptions);
+    this.appliedMiddleware(this, action => {
+      this.state = this.rootReducer(this.state, action, this.subscriptions);
+      return this.state;
+    })(action);
   }
 
   subscribe(cb) {
@@ -28,7 +34,7 @@ const combineReducers = config => {
     let stateChanged = false;
     Object.keys(config).forEach(k => {
       if (!action) {
-        const args = [ , { type: "__initialize" }];
+        const args = [, { type: "__initialize" }];
         nextState[k] = config[k](...args);
         stateChanged = true;
       } else {
@@ -45,3 +51,4 @@ const combineReducers = config => {
     return prevState;
   }
 }
+
