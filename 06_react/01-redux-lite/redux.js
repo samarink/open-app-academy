@@ -7,7 +7,11 @@ class Store {
   }
 
   getState() {
-    return Object.assign(this.state); // shallow copy
+    return Object.assign({}, this.state); // shallow copy
+  }
+
+  dispatch(action) {
+    this.state = this.rootReducer(this.state, action);
   }
 }
 
@@ -16,8 +20,13 @@ const createStore = (...args) => new Store(...args);
 const combineReducers = config => {
   return (prevState, action) => {
     const nextState = {};
-    Object.keys(prevState).forEach(k => {
-      nextState[k] = config[k](prevState[k], action);
+    Object.keys(config).forEach(k => {
+      if (!action) {
+        const args = [ , { type: "__initialize" }];
+        nextState[k] = config[k](...args);
+      } else {
+        nextState[k] = config[k](prevState[k], action);
+      }
     });
 
     return nextState;
