@@ -28,6 +28,10 @@ class Clock extends React.Component {
     let minutes = time.getMinutes();
     let seconds = time.getSeconds();
 
+    hours = (hours < 10) ? `0${hours}` : hours;
+    minutes = (minutes < 10) ? `0${minutes}` : minutes;
+    seconds = (seconds < 10) ? `0${seconds}` : seconds;
+
     return (
       <div>
         <h1>Clock</h1>
