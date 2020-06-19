@@ -28,6 +28,11 @@ body{
   justify-content: space-around;
 }
 
+.interactive {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Clock */
 
 .clock {
@@ -119,4 +124,56 @@ body{
 .weather p {
   font-size: 24px;
   padding: 10px;
+}
+
+/* Autocomplete */
+
+.auto{
+  color: white;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  width: 191px;
+  height: 200px;
+  border: 2px solid gray;
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  background-color: #A518D7;
+}
+
+.auto > * {
+  margin-left: 30px;
+}
+
+.auto > input{
+  background: white;
+  color: black;
+  margin: 10px 30px 0 30px;
+  border: 1px solid gray;
+}
+
+.auto li{
+  cursor: pointer;
+}
+
+/* react animation */
+.auto-enter {
+  opacity: 0.01;
+  transform: translateY(500%);
+}
+
+.auto-enter.auto-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.auto-leave {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.auto-leave.auto-leave-active {
+  opacity: 0.01;
+  transform: translateY(500%);
+  transition: opacity 500ms, transform 500ms;
 }

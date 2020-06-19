@@ -20,7 +20,7 @@ class Weather extends React.Component {
       lon: location.coords.longitude
     };
     url += toQueryString(params);
-    const k = '3618e1d46001a41b12de0081879f69b1';
+    const k = 'insert key here';
     url += `&appid=${k}`;
 
     const request = new XMLHttpRequest();
