@@ -1,5 +1,5 @@
 import { RECEIVE_TODO,
-        RECEIVE_TODOS } from '../actions/todo_actions';
+         RECEIVE_TODOS } from '../actions/todo_actions';
 
 const initialState = {
   1: {

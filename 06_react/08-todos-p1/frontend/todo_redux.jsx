@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import configureStore from './store/store';
-
-// TODO: test, delete later
-const store = configureStore();
-window.store = store;
-
-const App = () => (
-  <h1>Todos App</h1>
-);
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const store = configureStore();
+  window.store = store; // TODO: test, delete later
+
   ReactDom.render(
-    < App />,
+    <Root store={store} />,
     document.getElementById('content')
   );
 });
