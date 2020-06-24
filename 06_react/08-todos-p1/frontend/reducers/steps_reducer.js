@@ -4,30 +4,30 @@ import {
   REMOVE_STEP
 } from '../actions/step_actions';
 
-const initialState = {
-  1: {
-    title: "walk to store",
-    done: false,
-    todo_id: 1
-  },
-  2: {
-    title: "buy soap",
-    done: false,
-    todo_id: 1
-  },
-  3: {
-    title: "walk to park",
-    done: false,
-    todo_id: 3
-  },
-  4: {
-    title: "play with dog",
-    done: false,
-    todo_id: 2
-  }
-};
+// const initialState = {
+//   1: {
+//     title: "walk to store",
+//     done: false,
+//     todo_id: 1
+//   },
+//   2: {
+//     title: "buy soap",
+//     done: false,
+//     todo_id: 1
+//   },
+//   3: {
+//     title: "walk to park",
+//     done: false,
+//     todo_id: 3
+//   },
+//   4: {
+//     title: "play with dog",
+//     done: false,
+//     todo_id: 2
+//   }
+// };
 
-const stepsReducer = (state = initialState, action) => {
+const stepsReducer = (state = {}, action) => {
   let nextState;
   Object.freeze(state);
 
