@@ -28,3 +28,8 @@ export const todoError = error => ({
 export const fetchTodos = () => dispatch => (
   TodoAPIUtil.fetchTodos().then(todos => dispatch(receiveTodos(todos)))
 );
+
+export const createTodo = todo => dispatch => (
+  TodoAPIUtil.createTodo(todo).then(todo => dispatch(receiveTodo(todo)))
+);
+
