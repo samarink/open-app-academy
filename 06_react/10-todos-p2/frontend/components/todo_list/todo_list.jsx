@@ -4,6 +4,9 @@ import TodoListItem from './todo_list_item';
 import TodoForm from './todo_form';
 
 class TodoList extends React.Component {
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
 
   render() {
     const { todos, receiveTodo } = this.props;
