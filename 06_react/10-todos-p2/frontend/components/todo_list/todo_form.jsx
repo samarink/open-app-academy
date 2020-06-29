@@ -1,4 +1,5 @@
 import { uniqueId } from '../../util/id_generator'
+import ErrorList from './error_list';
 import React from 'react';
 
 class TodoForm extends React.Component {
@@ -28,6 +29,7 @@ class TodoForm extends React.Component {
   render() {
     return (
       <form className="todo-form" onSubmit={this.handleSubmit}>
+        <ErrorList errors={ this.props.errors } />
         <label>Title:
           <input
             className="input"

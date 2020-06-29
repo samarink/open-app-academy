@@ -7,7 +7,7 @@ import { allTodos } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
   todos: allTodos(state),
-  state
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({
