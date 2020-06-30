@@ -1,4 +1,3 @@
-import { uniqueId } from '../../util/id_generator'
 import ErrorList from './error_list';
 import React from 'react';
 
@@ -20,7 +19,7 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = Object.assign({}, this.state, { id: uniqueId() });
+    const todo = Object.assign({}, this.state);
     this.props.createTodo({ todo }).then(
       () => this.setState({ title: "", body: "" })
     );
