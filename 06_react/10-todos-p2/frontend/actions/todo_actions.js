@@ -38,3 +38,10 @@ export const createTodo = todo => dispatch => (
     )
 );
 
+export const updateTodo = todo => dispatch => (
+  TodoAPIUtil.updateTodo(todo)
+    .then(
+      todo => dispatch(receiveTodo(todo)),
+      err => dispatch(receiveErrors(err.responseJSON))
+    )
+);

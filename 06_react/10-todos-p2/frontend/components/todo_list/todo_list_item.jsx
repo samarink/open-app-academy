@@ -22,7 +22,7 @@ class TodoListItem extends React.Component {
       { done: !this.props.todo.done }
     );
 
-     this.props.receiveTodo(toggledTodo);
+     this.props.updateTodo(toggledTodo);
   }
 
   render() {
