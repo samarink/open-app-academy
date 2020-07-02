@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
 import StepListItem from './step_list_item';
 // Actions
-import { receiveStep, removeStep, updateStep } from '../../actions/step_actions';
+import { updateStep, destroyStep} from '../../actions/step_actions';
 
 const mapDispatchToProps = (dispatch, { step }) => ({
-  removeStep: () => dispatch(removeStep(step)),
-  receiveStep: step => dispatch(receiveStep(step)),
-  updateStep: updatedStep => dispatch(updateStep(updatedStep))
+  updateStep: updatedStep => dispatch(updateStep(updatedStep)),
+  destroyStep: () => dispatch(destroyStep(step))
 });
 
 export default connect(
