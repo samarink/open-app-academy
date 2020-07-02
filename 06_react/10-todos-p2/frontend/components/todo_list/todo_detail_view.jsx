@@ -13,6 +13,10 @@ class TodoDetailView extends React.Component {
         <button
           className="delete-button"
           onClick={ destroyTodo }>Delete Todo</button>
+        <ul className="tag-list">
+          { todo.tags.map(tag => <li key={ tag.id }>{ tag.name }</li>)}
+          { console.log(todo.tags) }
+        </ul>
       </div>
     );
   }
