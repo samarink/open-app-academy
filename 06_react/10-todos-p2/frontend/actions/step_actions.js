@@ -1,3 +1,5 @@
+import * as StepAPIUtil from '../util/step_api_util';
+
 export const RECEIVE_STEPS = "RECEIVE_STEPS";
 export const RECEIVE_STEP = "RECEIVE_STEP";
 export const REMOVE_STEP = "REMOVE_STEP";
@@ -16,3 +18,8 @@ export const removeStep = step => ({
   type: REMOVE_STEP,
   step
 });
+
+export const requestSteps = todoId => dispatch => (
+  StepAPIUtil.fetchSteps(todoId)
+  .then(steps => dispatch(receiveSteps(steps)))
+);
