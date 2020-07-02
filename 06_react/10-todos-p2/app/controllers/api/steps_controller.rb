@@ -5,8 +5,8 @@ class Api::StepsController < ApplicationController
 
   def create
     @step = Step.new(steps_params)
-    if steps.save
-      render json: step
+    if @step.save
+      render json: @step
     else
       render json: @step.errors.full_messages, status: :unprocessable_entity
     end
