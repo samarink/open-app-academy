@@ -28,3 +28,8 @@ export const createStep = (todoId, step) => dispatch => (
   StepAPIUtil.createStep(todoId, step)
   .then(step => dispatch(receiveStep(step)))
 );
+
+export const updateStep = step => dispatch => (
+  StepAPIUtil.updateStep(step)
+  .then(step => dispatch(receiveStep(step)))
+);

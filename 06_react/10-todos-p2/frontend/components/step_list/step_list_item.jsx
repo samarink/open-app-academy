@@ -12,7 +12,7 @@ class StepListItem extends React.Component {
       this.props.step,
       { done: !this.props.step.done}
     );
-    this.props.receiveStep(toggledStep);
+    this.props.updateStep(toggledStep);
   }
 
   render() {
