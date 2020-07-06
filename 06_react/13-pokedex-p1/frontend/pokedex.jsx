@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import { Provider } from 'react-redux';
 
 // test
 import { receiveAllPokemon, requestAllPokemon } from './actions/pokemon_actions';
 import { fetchAllPokemon } from './util/api_util';
 import { selectAllPokemon } from './reducers/selectors';
+
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <div>Hello, world!</div>
+  </Provider>
+);
 
 document.addEventListener('DOMContentLoaded', () => {
   let store = configureStore();
@@ -19,5 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.requestAllPokemon=requestAllPokemon;
 
   const root = document.getElementById('root');
-  ReactDOM.render(<h1>Pokedex</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
