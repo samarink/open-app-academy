@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  ngnix:
+    build:
+      context: .
+    image: samarink/ngnix
+    ports:
+      - 80:80
