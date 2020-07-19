@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+
+  app:
+    image: nodeapp
+    build: .
+    ports:
+      - 80:3000
+    environment:
+      - MONGO_URI=mongodb://mongo_db/nodeapp
+    networks:
+      - nodemernapp
+
+  db:
+    image: mongo:3.0.15
+    volumes:
+      - mongo-db:/data/db
+    networks:
+      nodemernapp:
+        aliases:
+          - "mongo_db"
+
+networks:
+  mernnodeapp:
+    driver: bridge
+
+volumes:
+  mongo-db:

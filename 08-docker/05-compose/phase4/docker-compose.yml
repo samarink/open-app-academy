@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+
+  drupal:
+    build: .
+    image: samarink/custom-drupal
+    ports:
+      - 8080:80
+
+  psql:
+    image: postgres:9.6
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
+
+volumes:
+  drupal-data:
