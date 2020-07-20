@@ -3,6 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
+const { graphqlHTTP } = require('express-graphql');
+const User = require('./models/User');
+const schema = require('./schema/schema');
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -10,7 +13,12 @@ mongoose
   .catch(err => console.log(err));
 
 app.use(bodyParser.json());
-
-app.get('/', (_, res) => res.send('Hello World'));
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  })
+);
 
 app.listen(5000, () => console.log('Server is running on port 5000'));
