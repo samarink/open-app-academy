@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
+
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
-const { graphqlHTTP } = require('express-graphql');
+const Post = require("./models/Post");
 const User = require('./models/User');
+
+const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema');
 
 mongoose
