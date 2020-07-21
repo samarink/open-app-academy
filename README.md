@@ -32,3 +32,6 @@ Coursework for App Academy. Exercises, homeworks, projects etc.
 - [BenchBnb](https://github.com/samarink/open-app-academy/tree/master/06_react/16-bench-bnb) AirBnb clone
 ### MERN
 - [Mern Twitter](https://github.com/samarink/open-app-academy/tree/master/07-mern/mern-twitter) Twitter clone. Express, Mongodb on a Back-End. React + Redux on a front-end
+### Docker
+- [Dockerfiles Galore](https://github.com/samarink/open-app-academy/tree/master/08-docker/03-dockerfiles-galore) Writing Dockerfiles
+- [Compose](https://github.com/samarink/open-app-academy/tree/master/08-docker/05-compose) Writing Docker-compose
