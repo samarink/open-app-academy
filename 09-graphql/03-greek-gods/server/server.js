@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const db = require('../config/keys').mongoURI;
 const bodyParser = require('body-parser');
-
+const { graphqlHTTP } = require('express-graphql');
+const models = require('./models');
+const schema = require('./schema/schema');
 const app = express();
 
 if (!db) {
@@ -15,5 +17,13 @@ mongoose
   .catch(err => console.log(err));
 
 app.use(bodyParser.json());
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true
+  })
+);
 
 module.exports = app;
