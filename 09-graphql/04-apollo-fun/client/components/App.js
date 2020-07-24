@@ -1,10 +1,15 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import DogIndex from './dogs/DogIndex';
+import DogDetail from './dogs/DogDetail';
 
 const App = () => (
   <div>
-    <Route path='/' component={DogIndex} />
+    <Switch>
+      <Route path="/dogs/:dogId" component={DogDetail} />
+      {/* <Route path='/toys' component={ToyIndex} /> */}
+      <Route path="/" component={DogIndex} />
+    </Switch>
   </div>
 );
 
