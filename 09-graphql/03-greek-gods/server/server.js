@@ -16,7 +16,14 @@ mongoose
   .then(() => console.log('Connected to MonngoDB successfully'))
   .catch(err => console.log(err));
 
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config');
+
+app.use(webpackMiddleware(webpack(webpackConfig)));
+
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 app.use(
   '/graphql',
