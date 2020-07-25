@@ -23,7 +23,7 @@ const mutation = new GraphQLObjectType({
         return new God({ name, type, description }).save();
       }
     },
-    removeGod: {
+    deleteGod: {
       type: GodType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parentValue, { id }) {
