@@ -7,9 +7,12 @@ import Nav from './navigation/Nav';
 const App = () => {
   return (
     <div>
-      <Route path='/' component={Nav} />
-      <Route exact path='/' component={GodsList} />
-      <Route path='/new' component={Create} />
+      <Switch>
+        <Route path='/' component={Nav} />
+        <Route exact path='/gods/:id' component={GodDetail} />
+        <Route exact path='/new' component={Create} />
+        <Route exact path='/' component={GodsList} />
+      </Switch>
     </div>
   );
 };
