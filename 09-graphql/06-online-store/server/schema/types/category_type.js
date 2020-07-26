@@ -6,7 +6,13 @@ const CategoryType = new GraphQLObjectType({
   name: 'CategoryType',
   fields: () => ({
     _id: { type: GraphQLID },
-    name: { type: GraphQLString }
+    name: { type: GraphQLString },
+    products: {
+      type: new GraphQLList(require("./product_type")),
+      resolve(parentValue) {
+        return Category.findProducts(parentValue._id);
+      }
+    }
   })
 });
 
