@@ -17,9 +17,19 @@ const cache = new InMemoryCache({
 const client = new ApolloClient({
   uri: "http://localhost:5000/graphql",
   cache,
+  headers: {
+    // pass our token into the header of each request
+    authorization: localStorage.getItem("auth-token")
+  },
   onError: ({ networkError, graphQLErrors }) => {
     console.log("graphQLErrors", graphQLErrors);
     console.log("networkError", networkError);
+  }
+});
+
+cache.writeData({
+  data: {
+    isLoggedIn: Boolean(localStorage.getItem("auth-token"))
   }
 });
 

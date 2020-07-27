@@ -25,10 +25,15 @@ app.use(bodyParser.json());
 // in the object passed to the expressGraphQL function
 app.use(
   "/graphql",
-  expressGraphQL({
-    schema,
-    // allowing us to use GraphiQL in a dev environment
-    graphiql: true
+  // now we are accepting the request in our middleware
+  expressGraphQL(req => {
+    return {
+      schema,
+      context: {
+        token: req.headers.authorization
+      },
+      graphiql: true
+    };
   })
 );
 
