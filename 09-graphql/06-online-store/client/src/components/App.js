@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import ProductIndex from '../components/products/ProductIndex';
 import Login from '../components/Login';
+import AuthRoute from '../util/route_util';
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
       <h1>Online Store</h1>
       <Switch>
         <Route exact path='/' component={ProductIndex} />
-        <Route exact path='/login' component={Login} />
+        <AuthRoute exact path='/login' component={Login} routeType='auth' />
       </Switch>
     </div>
   );
