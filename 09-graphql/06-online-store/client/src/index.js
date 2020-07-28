@@ -9,13 +9,15 @@ import { ApolloLink } from 'apollo-link';
 import { HashRouter } from 'react-router-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import mutations from './graphql/mutations';
+const { VERIFY_USER } = mutations;
 
 const cache = new InMemoryCache({
-  dataIdFromObject: object => object._id || null
+  dataIdFromObject: (object) => object._id || null,
 });
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:5000/graphql"
+  uri: 'http://localhost:5000/graphql',
 });
 
 const errorLink = onError(({ graphQLErrors }) => {
@@ -26,10 +28,30 @@ const client = new ApolloClient({
   link: httpLink,
   cache,
   onError: ({ networkError, graphQLErrors }) => {
-    console.log("graphQLErrors", graphQLErrors);
-    console.log("networkError", networkError);
-  }
+    console.log('graphQLErrors', graphQLErrors);
+    console.log('networkError', networkError);
+  },
 });
+
+const token = localStorage.getItem('auth-token');
+
+cache.writeData({
+  data: {
+    isLoggedIn: Boolean(token),
+  },
+});
+
+if (token) {
+  client
+    .mutate({ mutation: VERIFY_USER, variables: { token } })
+    .then(({ data }) => {
+      cache.writeData({
+        data: {
+          isLoggedIn: data.verifyUser.loggedIn,
+        },
+      });
+    });
+}
 
 const Root = () => {
   return (
@@ -41,7 +63,7 @@ const Root = () => {
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
