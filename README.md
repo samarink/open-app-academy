@@ -38,3 +38,18 @@ Coursework for App Academy. Exercises, homeworks, projects etc.
 ### GrahpQL
 - [Greek Gods](https://github.com/samarink/open-app-academy/tree/master/09-graphql/03-greek-gods) MERN + GrapQL api to list/create/modify gods
 - [Online Store](https://github.com/samarink/open-app-academy/tree/master/09-graphql/06-online-store) MERN + GraphQL + Auth Online store
+### Data Structures And Algorithms
+- [Recursion](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/01-recursion/recursion_project)
+- [Memoization](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/02-dynamic-programming-memoization)
+- [Tabulation](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/03-dynamic%3Dprogramming-tabulation/tabulation_project)
+- [Slow Sorting](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/04-naive-sorting-algorithms)
+- [Fast Sorting](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/05-efficient-sorting-algorithms)
+- [Binary Searhc](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/06-binary-search/binary_search_project)
+- [Linked List](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/07-linked-list)
+- [Stacks and Queues](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/08-stacks-and-queques)
+- [Trees](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/09-trees)
+- [Binary Search Tree](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/10-binary-search-tree/bst_project)
+- [Graphs](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/11-graphs/graph_project)
+- [Heaps](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/12-heaps)
+- [Tries](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/13-tries/trie_project)
+- [Path Finding](https://github.com/samarink/open-app-academy/tree/master/10-data-structures-and-algorithms/14-path-finding)
